@@ -11,6 +11,8 @@
 		F35BDE602E59C9AB00C26980 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BDE5F2E59C9AB00C26980 /* ContentView.swift */; };
 		F35BDE622E59C9AD00C26980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35BDE612E59C9AD00C26980 /* Assets.xcassets */; };
 		F35BDE652E59C9AD00C26980 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35BDE642E59C9AD00C26980 /* Preview Assets.xcassets */; };
+		F35BDE702E59CDAC00C26980 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BDE6F2E59CDAC00C26980 /* NetworkManager.swift */; };
+		F35BDE722E59CDC500C26980 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BDE712E59CDC500C26980 /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		F35BDE5F2E59C9AB00C26980 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F35BDE612E59C9AD00C26980 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F35BDE642E59C9AD00C26980 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F35BDE6F2E59CDAC00C26980 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F35BDE712E59CDC500C26980 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		F35BDE6C2E59CAD800C26980 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F35BDE712E59CDC500C26980 /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 		F35BDE6E2E59CAEE00C26980 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				F35BDE6F2E59CDAC00C26980 /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -169,7 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35BDE702E59CDAC00C26980 /* NetworkManager.swift in Sources */,
 				F35BDE602E59C9AB00C26980 /* ContentView.swift in Sources */,
+				F35BDE722E59CDC500C26980 /* WeatherModel.swift in Sources */,
 				F35BDE5E2E59C9AB00C26980 /* TestTask1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
