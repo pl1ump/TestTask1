@@ -13,6 +13,7 @@
 		F35BDE652E59C9AD00C26980 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35BDE642E59C9AD00C26980 /* Preview Assets.xcassets */; };
 		F35BDE702E59CDAC00C26980 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BDE6F2E59CDAC00C26980 /* NetworkManager.swift */; };
 		F35BDE722E59CDC500C26980 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BDE712E59CDC500C26980 /* WeatherModel.swift */; };
+		F35BDE742E59D17600C26980 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BDE732E59D17600C26980 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		F35BDE642E59C9AD00C26980 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F35BDE6F2E59CDAC00C26980 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F35BDE712E59CDC500C26980 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		F35BDE732E59D17600C26980 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		F35BDE6D2E59CADF00C26980 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F35BDE732E59D17600C26980 /* WeatherViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35BDE742E59D17600C26980 /* WeatherViewModel.swift in Sources */,
 				F35BDE702E59CDAC00C26980 /* NetworkManager.swift in Sources */,
 				F35BDE602E59C9AB00C26980 /* ContentView.swift in Sources */,
 				F35BDE722E59CDC500C26980 /* WeatherModel.swift in Sources */,
