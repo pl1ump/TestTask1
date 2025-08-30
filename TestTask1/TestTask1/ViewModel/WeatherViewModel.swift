@@ -6,10 +6,10 @@ class WeatherViewModel: ObservableObject {
     @Published var isLoading = false
     private let networkManager = NetworkManager()
     
-    func loadWeather(lat: Double, lon: Double) {
+    func loadWeather(city: String) {
          isLoading = true
          weather = nil
-        networkManager.fetchWeather(lat: lat, lon: lon) { [weak self] result in
+        networkManager.fetchWeather(city: city ) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherData):

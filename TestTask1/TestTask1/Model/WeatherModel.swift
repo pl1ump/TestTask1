@@ -24,3 +24,20 @@ struct Weather: Codable {
     let description: String
     let icon: String
 }
+
+struct ForecastResponse: Codable {
+    let list: [Forecast]
+    let city: City
+}
+
+struct Forecast: Codable {
+    let dt: Int
+    let dt_txt: String
+    let main: Main
+    let weather: [Weather]
+}
+
+struct City: Codable {
+    let name: String
+    let country: String
+}
