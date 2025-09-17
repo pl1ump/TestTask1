@@ -1,8 +1,10 @@
 import Foundation
 @MainActor
 class WeatherForecastViewModel: ObservableObject  {
+    
+    @Published var city: String = ""
     @Published var weatherForecasts = [Forecast]()
-    @Published var city: City?
+    @Published var cityInfo: City?
     @Published var errorMessage: String?
     @Published var isLoading = false
     var groupedForecasts: [String: [Forecast]] {
@@ -13,7 +15,8 @@ class WeatherForecastViewModel: ObservableObject  {
     
     private var networkManager = NetworkManager()
     
-    func forecastsLoad(city: String) {
+    func forecastsLoad() {
+        guard !city.isEmpty else {return}
         Task {
             isLoading = true
             weatherForecasts = []
@@ -21,7 +24,7 @@ class WeatherForecastViewModel: ObservableObject  {
             
             do {
                 let (loadedCity, forecast) = try await networkManager.fetchForecast(city: city)
-                self.city = loadedCity
+                self.cityInfo = loadedCity
                 self.weatherForecasts = forecast
             }
             catch {
