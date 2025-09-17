@@ -3,6 +3,7 @@ import Foundation
 @MainActor
 class WeatherViewModel: ObservableObject {
     
+  
     @Published var weather: WeatherResponse?
     @Published var isLoading = false
     @Published var errorMessage: String?
