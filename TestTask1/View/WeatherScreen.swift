@@ -5,6 +5,7 @@ struct WeatherScreen: View {
     @State private var city = ""
     var body: some View {
         VStack(spacing: 16) {
+            
             HStack {
                 TextField("Enter city", text: $city)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
