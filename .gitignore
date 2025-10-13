@@ -12,6 +12,8 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+*.xcuserstate
+*.xcuserdata/
 
 # API Keys
 *.xcconfig
