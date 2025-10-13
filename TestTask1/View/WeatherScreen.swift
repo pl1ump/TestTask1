@@ -45,9 +45,7 @@ struct WeatherScreen: View {
                         }
                     }
                 }
-            }  else if viewModel.isLoading {
-                ProgressView()
-            } else {
+            }   else {
                 Text("No data")
             }
             Spacer()

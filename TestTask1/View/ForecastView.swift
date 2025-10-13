@@ -10,6 +10,7 @@ struct ForecastView: View {
                     TextField("Search city", text: $viewModel.city)
                         .textFieldStyle(.roundedBorder)
                         .padding(.horizontal)
+                        
                     Button("Search") {
                         viewModel.forecastsLoad()
                     }
