@@ -12,7 +12,9 @@ struct ForecastView: View {
                         .padding(.horizontal)
                         
                     Button("Search") {
-                        viewModel.forecastsLoad()
+                        Task {
+                            await viewModel.forecastsLoad()
+                        }
                     }
                     .padding(.trailing)
                 }

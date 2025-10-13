@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F3275E4A2E62064800E5F63C /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3275E492E62064800E5F63C /* DateExtensions.swift */; };
 		F3275E4E2E63443000E5F63C /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3275E4D2E63443000E5F63C /* ForecastView.swift */; };
-		F329CCC82E9AA73D006C9ADF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F329CCC72E9AA73D006C9ADF /* Info.plist */; };
 		F358DF6E2E9D626E0040AAC4 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F358DF6D2E9D626E0040AAC4 /* NetworkError.swift */; };
 		F358DF702E9D67D50040AAC4 /* APIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F358DF6F2E9D67D50040AAC4 /* APIErrorResponse.swift */; };
 		F35BDE5E2E59C9AB00C26980 /* TestTask1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BDE5D2E59C9AB00C26980 /* TestTask1App.swift */; };
@@ -194,7 +193,6 @@
 			files = (
 				F35BDE652E59C9AD00C26980 /* Preview Assets.xcassets in Resources */,
 				F35BDE622E59C9AD00C26980 /* Assets.xcassets in Resources */,
-				F329CCC82E9AA73D006C9ADF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
