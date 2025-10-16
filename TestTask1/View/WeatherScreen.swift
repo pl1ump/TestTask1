@@ -7,9 +7,9 @@ struct WeatherScreen: View {
         VStack(spacing: 16) {
             
             HStack {
-                TextField("Enter city", text: $city)
+                TextField("textFieldSearch", text: $city)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button("Search") {
+                Button("buttonSearch") {
                     viewModel.loadWeather(city: city)
                 }
             }
@@ -17,16 +17,27 @@ struct WeatherScreen: View {
             Spacer()
             
             if viewModel.isLoading {
-                Text("Weather is loading")
+                Text("loadWeather")
             } else if let weather = viewModel.weather {
+                weatherView(weather)
+            }   else {
+                Text("noData")
+            }
+            Spacer()
+        }
+        .padding()
+    }
+    
+    func weatherView(_ weather: WeatherResponse) -> some View {
+        VStack {
                 Text(weather.name)
                     .font(.largeTitle)
                     .bold()
-                
+
                 Text("\(Int(weather.main.temp))°C")
                     .font(.system(size: 64))
                     .bold()
-                
+
                 VStack(alignment: .leading, spacing: 8) {
                     ForEach(weather.weather, id: \.icon) { condition in
                         HStack {
@@ -45,14 +56,11 @@ struct WeatherScreen: View {
                         }
                     }
                 }
-            }   else {
-                Text("No data")
             }
-            Spacer()
         }
-        .padding()
     }
-}
+    
+
 
 #Preview {
     WeatherScreen()
