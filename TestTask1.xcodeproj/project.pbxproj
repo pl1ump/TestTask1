@@ -11,6 +11,7 @@
 		F3275E4E2E63443000E5F63C /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3275E4D2E63443000E5F63C /* ForecastView.swift */; };
 		F358DF6E2E9D626E0040AAC4 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F358DF6D2E9D626E0040AAC4 /* NetworkError.swift */; };
 		F358DF702E9D67D50040AAC4 /* APIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F358DF6F2E9D67D50040AAC4 /* APIErrorResponse.swift */; };
+		F358DF722EA15D920040AAC4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F358DF712EA15D920040AAC4 /* Localizable.xcstrings */; };
 		F35BDE5E2E59C9AB00C26980 /* TestTask1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BDE5D2E59C9AB00C26980 /* TestTask1App.swift */; };
 		F35BDE602E59C9AB00C26980 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BDE5F2E59C9AB00C26980 /* ContentView.swift */; };
 		F35BDE622E59C9AD00C26980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35BDE612E59C9AD00C26980 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		F329CCC72E9AA73D006C9ADF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F358DF6D2E9D626E0040AAC4 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F358DF6F2E9D67D50040AAC4 /* APIErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResponse.swift; sourceTree = "<group>"; };
+		F358DF712EA15D920040AAC4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F35BDE5A2E59C9AB00C26980 /* TestTask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35BDE5D2E59C9AB00C26980 /* TestTask1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTask1App.swift; sourceTree = "<group>"; };
 		F35BDE5F2E59C9AB00C26980 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				F35BDE632E59C9AD00C26980 /* Preview Content */,
 				F329CCC62E9A9AD1006C9ADF /* Config.xcconfig */,
 				F329CCC72E9AA73D006C9ADF /* Info.plist */,
+				F358DF712EA15D920040AAC4 /* Localizable.xcstrings */,
 			);
 			path = TestTask1;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = F35BDE512E59C9AB00C26980;
 			productRefGroup = F35BDE5B2E59C9AB00C26980 /* Products */;
@@ -193,6 +197,7 @@
 			files = (
 				F35BDE652E59C9AD00C26980 /* Preview Assets.xcassets in Resources */,
 				F35BDE622E59C9AD00C26980 /* Assets.xcassets in Resources */,
+				F358DF722EA15D920040AAC4 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +281,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/TestTask1/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -335,7 +340,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/TestTask1/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
