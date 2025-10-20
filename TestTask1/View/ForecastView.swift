@@ -7,11 +7,11 @@ struct ForecastView: View {
         NavigationView {
             VStack {
                 HStack {
-                    TextField("Search city", text: $viewModel.city)
+                    TextField("textFieldSearch", text: $viewModel.city)
                         .textFieldStyle(.roundedBorder)
                         .padding(.horizontal)
                         
-                    Button("Search") {
+                    Button("buttonSearch") {
                         Task {
                             await viewModel.loadForecast()
                         }
@@ -20,9 +20,9 @@ struct ForecastView: View {
                 }
                 Group {
                     if viewModel.isLoading {
-                        ProgressView("Загружаєм прогноз…")
+                        ProgressView("loadForecast")
                     } else if let error = viewModel.errorMessage {
-                        Text("Помилка: \(error)")
+                        Text("error: \(error)")
                             .foregroundColor(.red)
                     } else {
                         List {
@@ -36,7 +36,7 @@ struct ForecastView: View {
                         }
                     }
                 }
-                .navigationTitle(viewModel.cityInfo?.name ?? "Прогноз")
+                .navigationTitle(viewModel.cityInfo?.name ?? String(localized: "navTitleForecast"))
             }
             .background(Color(uiColor: .systemGray6))
         }

@@ -7,9 +7,9 @@ struct WeatherScreen: View {
         VStack(spacing: 16) {
             
             HStack {
-                TextField("Enter city", text: $city)
+                TextField("textFieldSearch", text: $city)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button("Search") {
+                Button("buttonSearch") {
                     Task {
                         await viewModel.loadWeather(city: city)
                     }
@@ -19,41 +19,48 @@ struct WeatherScreen: View {
             Spacer()
             
             if viewModel.isLoading {
-                Text("Weather is loading")
+                Text("loadWeather")
             } else if let weather = viewModel.weather {
-                Text(weather.name)
-                    .font(.largeTitle)
-                    .bold()
-                
-                Text("\(Int(weather.main.temp))°C")
-                    .font(.system(size: 64))
-                    .bold()
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(weather.weather, id: \.icon) { condition in
-                        HStack {
-                            AsyncImage(
-                                url: URL(string: "https://openweathermap.org/img/wn/\(condition.icon)@2x.png"))
-                            { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            Text(condition.description.capitalized)
-                                .font(.headline)
-                        }
-                    }
-                }
+                weatherView(weather)
             }   else {
-                Text("No data")
+                Text("noData")
             }
             Spacer()
         }
         .padding()
     }
+    
+    func weatherView(_ weather: WeatherResponse) -> some View {
+        VStack {
+            Text(weather.name)
+                .font(.largeTitle)
+                .bold()
+
+            Text("\(Int(weather.main.temp))°C")
+                .font(.system(size: 64))
+                .bold()
+
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(weather.weather, id: \.icon) { condition in
+                    HStack {
+                        AsyncImage(
+                            url: URL(string: "https://openweathermap.org/img/wn/\(condition.icon)@2x.png"))
+                        { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        Text(condition.description.capitalized)
+                            .font(.headline)
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 #Preview {
