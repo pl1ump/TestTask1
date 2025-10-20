@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct WeatherScreen: View {
-    @StateObject private var viewModel = WeatherViewModel()
+    @StateObject private var viewModel = WeatherViewModel(networKManager: NetworkManager())
     @State private var city = ""
     var body: some View {
         VStack(spacing: 16) {
@@ -10,7 +10,9 @@ struct WeatherScreen: View {
                 TextField("Enter city", text: $city)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Button("Search") {
-                    viewModel.loadWeather(city: city)
+                    Task {
+                        await viewModel.loadWeather(city: city)
+                    }
                 }
             }
             .padding()

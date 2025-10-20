@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ForecastView: View {
-    @StateObject private var viewModel = WeatherForecastViewModel()
+    @StateObject private var viewModel = WeatherForecastViewModel(networkManager: NetworkManager())
     
     var body: some View {
         NavigationView {
@@ -13,7 +13,7 @@ struct ForecastView: View {
                         
                     Button("Search") {
                         Task {
-                            await viewModel.forecastsLoad()
+                            await viewModel.loadForecast()
                         }
                     }
                     .padding(.trailing)
@@ -41,7 +41,7 @@ struct ForecastView: View {
             .background(Color(uiColor: .systemGray6))
         }
         .task {
-            await viewModel.forecastsLoad()
+            await viewModel.loadForecast()
         }
     }
 }

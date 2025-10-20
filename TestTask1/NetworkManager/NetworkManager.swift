@@ -1,13 +1,23 @@
 import Foundation
 
-final class NetworkManager {
+protocol NetworkService {
+    func fetchWeather(city: String) async throws -> WeatherResponse
+    func fetchForecast(city: String) async throws -> ForecastResponse
+}
+
+final class NetworkManager: NetworkService {
     private let apiKey: String
     
-    init() {
-        guard let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else {
-            fatalError("Error: API_KEY not found in Info.plist")
+    init(apiKey: String? = nil) {
+        
+        if let key = apiKey {
+            self.apiKey = key
+        } else {
+            guard let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else {
+                fatalError("Error: API_KEY not found in Info.plist")
+            }
+            self.apiKey = key
         }
-        self.apiKey = key
     }
     
     private func fetchData(from url: URL) async throws -> Data {
