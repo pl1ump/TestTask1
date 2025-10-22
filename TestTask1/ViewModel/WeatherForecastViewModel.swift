@@ -13,9 +13,12 @@ class WeatherForecastViewModel: ObservableObject  {
         }
     }
     
-    private var networkManager = NetworkManager()
+    private var networkManager: NetworkService
+    init(networkManager: NetworkService) {
+        self.networkManager = networkManager
+    }
     
-    func forecastsLoad() async {
+    func loadForecast() async {
            guard !city.isEmpty else { return }
            
            isLoading = true

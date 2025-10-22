@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct WeatherScreen: View {
-    @StateObject private var viewModel = WeatherViewModel()
+    @StateObject private var viewModel = WeatherViewModel(networKManager: NetworkManager())
     @State private var city = ""
     var body: some View {
         VStack(spacing: 16) {
@@ -10,7 +10,9 @@ struct WeatherScreen: View {
                 TextField("textFieldSearch", text: $city)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Button("buttonSearch") {
-                    viewModel.loadWeather(city: city)
+                    Task {
+                        await viewModel.loadWeather(city: city)
+                    }
                 }
             }
             .padding()
@@ -30,37 +32,36 @@ struct WeatherScreen: View {
     
     func weatherView(_ weather: WeatherResponse) -> some View {
         VStack {
-                Text(weather.name)
-                    .font(.largeTitle)
-                    .bold()
+            Text(weather.name)
+                .font(.largeTitle)
+                .bold()
 
-                Text("\(Int(weather.main.temp))°C")
-                    .font(.system(size: 64))
-                    .bold()
+            Text("\(Int(weather.main.temp))°C")
+                .font(.system(size: 64))
+                .bold()
 
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(weather.weather, id: \.icon) { condition in
-                        HStack {
-                            AsyncImage(
-                                url: URL(string: "https://openweathermap.org/img/wn/\(condition.icon)@2x.png"))
-                            { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            Text(condition.description.capitalized)
-                                .font(.headline)
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(weather.weather, id: \.icon) { condition in
+                    HStack {
+                        AsyncImage(
+                            url: URL(string: "https://openweathermap.org/img/wn/\(condition.icon)@2x.png"))
+                        { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                        } placeholder: {
+                            ProgressView()
                         }
+                        Text(condition.description.capitalized)
+                            .font(.headline)
                     }
                 }
             }
         }
     }
     
-
+}
 
 #Preview {
     WeatherScreen()
