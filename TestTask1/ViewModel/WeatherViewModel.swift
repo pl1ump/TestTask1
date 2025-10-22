@@ -1,7 +1,7 @@
 import Foundation
 
 @MainActor
-class WeatherViewModel: ObservableObject {
+final class WeatherViewModel: WeatherViewModelProtocol {
     
   
     @Published var weather: WeatherResponse?

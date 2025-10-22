@@ -1,8 +1,13 @@
 import SwiftUI
 
-struct WeatherScreen: View {
-    @StateObject private var viewModel = WeatherViewModel(networKManager: NetworkManager())
+struct WeatherScreen<ViewModel: WeatherViewModelProtocol>: View {
+    @StateObject private var viewModel: ViewModel
     @State private var city = ""
+    
+    init(viewModel: @autoclosure @escaping () -> ViewModel) {
+           _viewModel = StateObject(wrappedValue: viewModel())
+       }
+    
     var body: some View {
         VStack(spacing: 16) {
             
@@ -64,5 +69,5 @@ struct WeatherScreen: View {
 }
 
 #Preview {
-    WeatherScreen()
+    WeatherScreen(viewModel: WeatherViewModel(networKManager: NetworkManager()))
 }
