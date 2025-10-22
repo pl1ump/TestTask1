@@ -97,4 +97,5 @@ struct ForecastRow: View {
 
 #Preview {
     ForecastView()
+        .environment(\.locale, .init(identifier: "uk"))
 }
