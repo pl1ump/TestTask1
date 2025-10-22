@@ -1,7 +1,11 @@
 import SwiftUI
 
-struct ForecastView: View {
-    @StateObject private var viewModel = WeatherForecastViewModel(networkManager: NetworkManager())
+struct ForecastView<ViewModel: ForecastViewModelProtocol>: View {
+    @StateObject private var viewModel: ViewModel
+    
+    init(viewModel: @autoclosure @escaping () -> ViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel())
+    }
     
     var body: some View {
         NavigationView {
@@ -47,10 +51,10 @@ struct ForecastView: View {
 }
 
 // MARK: - forecast for one day
-struct ForecastSection: View {
+struct ForecastSection<VM: ForecastViewModelProtocol>: View {
     let day: String
     let forecasts: [Forecast]
-    let viewModel: WeatherForecastViewModel
+    let viewModel: VM
     
     var body: some View {
         Section(header: Text(viewModel.formatDate(day))) {
@@ -62,9 +66,9 @@ struct ForecastSection: View {
 }
 
 // MARK: - Forecast row
-struct ForecastRow: View {
+struct ForecastRow<VM: ForecastViewModelProtocol>: View {
     let forecast: Forecast
-    let viewModel: WeatherForecastViewModel
+    let viewModel: VM
     
     var body: some View {
         HStack {
@@ -96,6 +100,6 @@ struct ForecastRow: View {
 }
 
 #Preview {
-    ForecastView()
+    ForecastView(viewModel: WeatherForecastViewModel(networkManager: NetworkManager()))
         .environment(\.locale, .init(identifier: "uk"))
 }

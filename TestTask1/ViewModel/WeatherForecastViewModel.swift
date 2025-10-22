@@ -1,6 +1,6 @@
 import Foundation
 @MainActor
-class WeatherForecastViewModel: ObservableObject  {
+final class WeatherForecastViewModel: ForecastViewModelProtocol  {    
     
     @Published var city: String = ""
     @Published var weatherForecasts = [Forecast]()
